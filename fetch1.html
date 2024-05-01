@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>User List</h2>
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("http://localhost/cs2033/singlePageApp/start.php?action=userListAPI")
+                .then(response => response.json())
+                .then(data => {
+                    const userTable = document.getElementById("userTable").getElementsByTagName('tbody')[0];
+                    data.forEach(user => {
+                        const row = userTable.insertRow();
+                        const cell1 = row.insertCell(0);
+                        const cell2 = row.insertCell(1);
+                        const cell3 = row.insertCell(2);
+                        const cell4 = row.insertCell(3);
+                        const cell5 = row.insertCell(4);
+                        cell1.textContent = user.userID;
+                        cell2.textContent = user.lastname;
+                        cell3.textContent = user.firstname;
+                        cell4.textContent = user.email;
+                        cell5.textContent = user.urole;
+                    });
+                })
+                .catch(error => console.error('Error fetching user list:', error));
+        });
+    </script>
+</body>
+</html>
