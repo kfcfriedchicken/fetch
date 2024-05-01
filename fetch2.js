@@ -15,7 +15,7 @@ function displayUserTableRow(user) {
 
 async function refreshTable() {
     try {
-        const response = await fetch("http://localhost/cs2033/singlePageApp/start.php?action=userListAPI");
+        const response = await fetch("http://localhost/fetch/start.php?action=userListAPI");
         const data = await response.json();
 
         const userTable = document.getElementById("userTable").getElementsByTagName('tbody')[0];
@@ -31,4 +31,13 @@ async function refreshTable() {
     }
 }
 document.addEventListener("DOMContentLoaded", refreshTable);
+
+    // Add a button for refreshing the table
+    const refreshButton = document.createElement("button");
+    refreshButton.textContent = "Refresh Table";
+    refreshButton.addEventListener("click", refreshTable);
+    document.body.appendChild(refreshButton);
+
+    // Add a display to show the last updated time
+
 
