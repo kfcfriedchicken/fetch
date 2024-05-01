@@ -17,7 +17,7 @@ async function refreshTable() {
     try {
         const response = await fetch("http://localhost/cs2033/singlePageApp/start.php?action=userListAPI");
         const data = await response.json();
-        
+
         const userTable = document.getElementById("userTable").getElementsByTagName('tbody')[0];
         //** Clear existing rows and Populate with New Data
         userTable.innerHTML = '';
