@@ -15,7 +15,7 @@ function displayUserTableRow(user) {
 
 async function refreshTable() {
     try {
-        const response = await fetch("https://localhost/fetch/start.php?action=userListAPI");
+        const response = await fetch("start.php?action=userListAPI");
         const data = await response.json();
 
         const userTable = document.getElementById("userTable").getElementsByTagName('tbody')[0];
