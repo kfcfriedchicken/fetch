@@ -39,5 +39,7 @@ document.addEventListener("DOMContentLoaded", refreshTable);
     document.body.appendChild(refreshButton);
 
     // Add a display to show the last updated time
-
+    const refreshTime = document.createElement("p");
+    refreshTime.innerHTML = `Updated: ${new Date()}`;
+    document.body.appendChild(refreshTime);
 
