@@ -17,7 +17,6 @@ async function refreshTable() {
     try {
         const response = await fetch("start.php?action=userListAPI");
         const data = await response.json();
-
         const userTable = document.getElementById("userTable").getElementsByTagName('tbody')[0];
         //** Clear existing rows and Populate with New Data
         userTable.innerHTML = '';
@@ -33,9 +32,9 @@ async function refreshTable() {
 document.addEventListener("DOMContentLoaded", refreshTable);
 
     // Add a button for refreshing the table
-    const refreshButton = document.createElement("button");
+    const refreshButton = document.getElementById('refreshButton');
     refreshButton.textContent = "Refresh Table";
-    refreshButton.addEventListener("click", refreshTable);
+    refreshButton.addEventListener("click",refreshTable);
     document.body.appendChild(refreshButton);
 
     // Add a display to show the last updated time
