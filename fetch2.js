@@ -31,14 +31,12 @@ async function refreshTable() {
 }
 document.addEventListener("DOMContentLoaded", refreshTable);
 
-    // Add a button for refreshing the table
-    const refreshButton = document.getElementById('refreshButton');
-    refreshButton.textContent = "Refresh Table";
-    refreshButton.addEventListener("click",refreshTable);
-    document.body.appendChild(refreshButton);
+// Add a refreshButton to refresh the table
+const refreshButton = document.getElementById('refreshButton');
+refreshButton.addEventListener("click",refreshTable);
+setInterval(refreshTable,10000);
 
-    // Add a display to show the last updated time
-    const refreshTime = document.createElement("p");
-    refreshTime.innerHTML = `Updated: ${new Date()}`;
-    document.body.appendChild(refreshTime);
-
+// Add a display to show the last updated time
+const refreshTime = document.createElement("p");
+refreshTime.innerHTML = `Updated: ${new Date()}`;
+document.body.appendChild(refreshTime);
